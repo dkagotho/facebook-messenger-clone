@@ -3,11 +3,19 @@ import { Button, FormControl, InputLabel, Input } from "@material-ui/core";
 
 import "./App.css";
 import Message from "./Message";
+import db from "./firebase";
+import firebase from "firebase";
 
 function App() {
   const [input, setInput] = useState('');
-  const [messages, setMessages] = useState([{username: 'Diana', text:'Hey yoh'},{username: 'Delany', text:'babe'}]);
+  const [messages, setMessages] = useState([]);
   const [username, setUsername] = useState('');
+
+  useEffect(() => {
+    //run once when the app component loads
+    db.collection('messages').onSnapshot(snapshot => {setMessages(snapshot.docs.map(doc => doc.data()))
+    })
+  }, [])
 
   useEffect(() => {
     setUsername(prompt('Please enter your name'))
@@ -16,8 +24,12 @@ function App() {
   const sendMessage = (event) => {
     //to prevent the refresh from happening on the whole page when you hit enter
     event.preventDefault();
-    //all the logic to send the message goes here
-    setMessages([...messages, {username: username, text: input}]);
+
+    db.collection('messages').add({
+      message: input,
+      username: username,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp()
+    })
     setInput("");
   };
 
