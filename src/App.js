@@ -44,17 +44,13 @@ function App() {
       <img src="https://facebookbrand.com/wp-content/uploads/2018/09/Header-e1538151782912.png?w=100&h-100" />
       <h1>Hello Diana</h1>
       <h2>welcome {username}</h2>
-    <form className= "app__form">
-      <FormControl>
-        <InputLabel>Enter a message...</InputLabel>
-        <Input value={input}
-          onChange={(event) => setInput(event.target.value)}/>
-
-
-          <IconButton disabled={!input} variant="contained" color="primary" type="submit" onClick={sendMessage}> <SendIcon />
-          </IconButton>
-      </FormControl>
-    </form>
+      <form className= "app__form">
+        <FormControl className="app__formControl">
+          <Input classname="app__input" placeholder='Enter a message...'value={input} onChange={(event) => setInput(event.target.value)}/>
+            <IconButton className="app__iconButton" disabled={!input} variant="contained" color="primary" type="submit" onClick={sendMessage}> <SendIcon />
+            </IconButton>
+        </FormControl>
+      </form>
 
     <FlipMove>
       {
@@ -63,8 +59,8 @@ function App() {
       ))
       }
     </FlipMove>
-
-    </div>
+      
+  </div>
   );
 }
 
