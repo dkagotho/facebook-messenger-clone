@@ -39,6 +39,7 @@ function App() {
 
   return (
     <div className="App">
+      <img src="https://facebookbrand.com/wp-content/uploads/2018/09/Header-e1538151782912.png?w=100&h-100" />
       <h1>Hello Diana</h1>
       <h2>welcome {username}</h2>
     <form>
