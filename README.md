@@ -2,6 +2,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 https://facebook-messenger-clone-bce12.web.app
 
+https://facebook-messenger-clone-bce12.firebaseapp.com
+
 
 
 ## Available Scripts
